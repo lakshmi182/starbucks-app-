@@ -1,0 +1,41 @@
+// Starbucks Coffee Shop - Full Stack React Frontend (Frontend only)
+// Technologies: React + Tailwind CSS + React Router
+
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import Menu from './pages/Menu';
+import Cart from './pages/Cart';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import { CartProvider } from './context/CartContext';
+
+export default function App() {
+  return (
+    <CartProvider>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/menu" element={<Menu />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </Router>
+    </CartProvider>
+  );
+}
+
+/* To Build This Starbucks Coffee Shop App:
+1. Create components: Navbar.jsx with links to all pages
+2. Create pages:
+   - Home.jsx → Welcome, featured drinks
+   - Menu.jsx → Coffee items, Add to Cart buttons
+   - Cart.jsx → Show cart items, total, checkout option
+   - About.jsx → Company story, mission
+   - Contact.jsx → Contact form
+3. Use Tailwind CSS for a clean, mobile-friendly UI
+4. Optionally, simulate cart with localStorage or Context API
+*/
+
